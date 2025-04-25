@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="CarLibrary.Car">
+    <Position X="5.25" Y="0.75" Width="1.5" />
+    <NestedTypes>
+      <Class Name="CarLibrary.Car.CarPriceComparer" Collapsed="true">
+        <TypeIdentifier />
+      </Class>
+      <Class Name="CarLibrary.Car.IdNumber" Collapsed="true">
+        <TypeIdentifier />
+      </Class>
+    </NestedTypes>
+    <TypeIdentifier />
+  </Class>
+  <Class Name="CarLibrary.PassengerCar">
+    <Position X="7.25" Y="2.25" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="CarLibrary.SUV">
+    <Position X="9.25" Y="1.25" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="CarLibrary.Truck">
+    <Position X="9.5" Y="4" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="Labb_12_1.DoublyLinkedList&lt;T&gt;">
+    <Position X="12.25" Y="1" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QAIAAAAAgAAAABACBAAAAAQAACAAAAAEAAQAAABEAhA=</HashCode>
+      <FileName>DoubleList.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Labb_12_1.DoublyNode&lt;T&gt;">
+    <Position X="14.5" Y="1" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AgAAAAAAAAAAAgAAAAAAAAAAAAAAABAAAAAAAAAAAAA=</HashCode>
+      <FileName>DoublyNode.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Program">
+    <Position X="14.5" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAQAAAAACAAAAABAEAAEAAAAQAAAABAAAAAA=</HashCode>
+      <FileName>Program.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

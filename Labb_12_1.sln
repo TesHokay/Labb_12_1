@@ -1,0 +1,34 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.12.35527.113
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Labb_12_1", "Labb_12_1\Labb_12_1.csproj", "{F5EC6B4B-2FD4-4986-A851-732278D1929E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CarLibrary", "..\Laboratornaya_10\CarLibrary\CarLibrary.csproj", "{91112E3A-CFEF-45BD-8193-D43D1750D459}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitTestDoubleList", "UnitTestDoubleList\UnitTestDoubleList.csproj", "{138C7522-2A17-402F-A4E1-0F0D7EECB8F5}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F5EC6B4B-2FD4-4986-A851-732278D1929E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F5EC6B4B-2FD4-4986-A851-732278D1929E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F5EC6B4B-2FD4-4986-A851-732278D1929E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F5EC6B4B-2FD4-4986-A851-732278D1929E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{91112E3A-CFEF-45BD-8193-D43D1750D459}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{91112E3A-CFEF-45BD-8193-D43D1750D459}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{91112E3A-CFEF-45BD-8193-D43D1750D459}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{91112E3A-CFEF-45BD-8193-D43D1750D459}.Release|Any CPU.Build.0 = Release|Any CPU
+		{138C7522-2A17-402F-A4E1-0F0D7EECB8F5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{138C7522-2A17-402F-A4E1-0F0D7EECB8F5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{138C7522-2A17-402F-A4E1-0F0D7EECB8F5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{138C7522-2A17-402F-A4E1-0F0D7EECB8F5}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
