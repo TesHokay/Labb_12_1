@@ -33,17 +33,24 @@
     <Lollipop Position="0.2" />
   </Class>
   <Class Name="Labb_12_1.DoublyNode&lt;T&gt;">
-    <Position X="14.5" Y="1" Width="1.5" />
+    <Position X="12.25" Y="5.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AgAAAAAAAAAAAgAAAAAAAAAAAAAAABAAAAAAAAAAAAA=</HashCode>
       <FileName>DoublyNode.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Program">
-    <Position X="14.5" Y="3.5" Width="1.5" />
+    <Position X="14.25" Y="4" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAQAAAAACAAAAABAEAAEAAAAQAAAABAAAAAA=</HashCode>
+      <HashCode>AgAAAAAAAQAAAAACAAAAABAEAAEBAAJQAIAABgAAAQA=</HashCode>
       <FileName>Program.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Labb_12_1.HashTableWithChaining&lt;TKey, TValue&gt;">
+    <Position X="14.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>CAIAAAAAAAAEAAABEAAABAQAAAAAAAAIAAAAAAAEAAA=</HashCode>
+      <FileName>HashTable.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Font Name="Segoe UI" Size="9" />
