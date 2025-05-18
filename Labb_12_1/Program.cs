@@ -4,6 +4,8 @@ using Labb_12_1;
 
 class Program
 {
+    private static BinaryTree<Car> carTree = new BinaryTree<Car>();
+    private static BinaryTree<Car> bstTree = null;
     static void Main()
     {
         DoublyLinkedList<Car> carList = new DoublyLinkedList<Car>();
@@ -15,7 +17,9 @@ class Program
             Console.WriteLine("\nГлавное меню:");
             Console.WriteLine("1. Работа с двунаправленным списком");
             Console.WriteLine("2. Работа с хеш-таблицей");
-            Console.WriteLine("3. Выход");
+            Console.WriteLine("3. Работа с бинарными деревьями");
+            Console.WriteLine("4. Работа с коллекцией");
+            Console.WriteLine("5. Выход");
             Console.Write("Выберите действие: ");
 
             switch (Console.ReadLine())
@@ -27,6 +31,12 @@ class Program
                     HashTableOperationsMenu(carHashTable);
                     break;
                 case "3":
+                    TreeOperationsMenu();
+                    break;
+                case "4":
+                    CollectionOperationsMenu();
+                    break;
+                case "5":
                     exit = true;
                     break;
                 default:
@@ -122,7 +132,269 @@ class Program
         }
     }
 
-    static void AddRandomCarsToHashTable(HashTableWithChaining<string, Car> hashTable)
+    static void TreeOperationsMenu()
+    {
+        bool back = false;
+        while (!back)
+        {
+            Console.WriteLine("\nМеню работы с деревом:");
+            Console.WriteLine("1. Создать сбалансированное дерево");
+            Console.WriteLine("2. Показать дерево");
+            Console.WriteLine("3. Найти элемент с максимальной стоимостью");
+            Console.WriteLine("4. Преобразовать в дерево поиска");
+            Console.WriteLine("5. Показать дерево поиска");
+            Console.WriteLine("6. Очистить все деревья");
+            Console.WriteLine("7. Вернуться в главное меню");
+            Console.Write("Выберите действие: ");
+
+            switch (Console.ReadLine())
+            {
+                case "1":
+                    CreateBalancedTree();
+                    break;
+                case "2":
+                    PrintTree();
+                    break;
+                case "3":
+                    FindMaxValueInTree();
+                    break;
+                case "4":
+                    ConvertToSearchTree();
+                    break;
+                case "5":
+                    PrintSearchTree();
+                    break;
+                case "6":
+                    ClearAllTrees();
+                    break;
+                case "7":
+                    back = true;
+                    break;
+                default:
+                    Console.WriteLine("Неверный ввод!");
+                    break;
+            }
+        }
+    }
+
+    static void CollectionOperationsMenu()
+    {
+        MyCollection<Car> collection = new MyCollection<Car>();
+        bool back = false;
+
+        while (!back)
+        {
+            Console.WriteLine("\nМеню работы с коллекцией (Stack на базе двунаправленного списка):");
+            Console.WriteLine("1. Создать пустую коллекцию");
+            Console.WriteLine("2. Создать коллекцию со случайными автомобилями");
+            Console.WriteLine("3. Добавить автомобиль в коллекцию (Push)");
+            Console.WriteLine("4. Извлечь автомобиль из коллекции (Pop)");
+            Console.WriteLine("5. Просмотреть верхний автомобиль (Peek)");
+            Console.WriteLine("6. Показать все автомобили в коллекции");
+            Console.WriteLine("7. Проверить наличие автомобиля в коллекции");
+            Console.WriteLine("8. Удалить конкретный автомобиль");
+            Console.WriteLine("9. Клонировать коллекцию");
+            Console.WriteLine("10. Очистить коллекцию");
+            Console.WriteLine("11. Вернуться в главное меню");
+            Console.Write("Выберите действие: ");
+
+            switch (Console.ReadLine())
+            {
+                case "1":
+                    collection = new MyCollection<Car>();
+                    Console.WriteLine("Создана пустая коллекция.");
+                    break;
+
+                case "2":
+                    Console.Write("Введите количество автомобилей: ");
+                    if (int.TryParse(Console.ReadLine(), out int count) && count > 0)
+                    {
+                        collection = new MyCollection<Car>(count, () => DoublyLinkedList<Car>.GenerateRandomCar());
+                        Console.WriteLine($"Создана коллекция с {count} случайными автомобилями.");
+                    }
+                    else
+                    {
+                        Console.WriteLine("Некорректный ввод!");
+                    }
+                    break;
+
+                case "3":
+                    Console.WriteLine("Добавление нового автомобиля:");
+                    Car newCar = new Car();
+                    newCar.InitRandom();
+                    collection.Push(newCar);
+                    Console.WriteLine($"Добавлен автомобиль: {newCar.Show()}");
+                    break;
+
+                case "4":
+                    try
+                    {
+                        Car poppedCar = collection.Pop();
+                        Console.WriteLine($"Извлечен автомобиль:\n{poppedCar.Show()}");
+                    }
+                    catch (InvalidOperationException ex)
+                    {
+                        Console.WriteLine(ex.Message);
+                    }
+                    break;
+
+                case "5":
+                    try
+                    {
+                        Car peekedCar = collection.Peek();
+                        Console.WriteLine($"Верхний автомобиль:\n{peekedCar.Show()}");
+                    }
+                    catch (InvalidOperationException ex)
+                    {
+                        Console.WriteLine(ex.Message);
+                    }
+                    break;
+
+                case "6":
+                    if (collection.Count == 0)
+                    {
+                        Console.WriteLine("Коллекция пуста.");
+                    }
+                    else
+                    {
+                        Console.WriteLine($"Коллекция содержит {collection.Count} автомобилей:");
+                        int index = 1;
+                        foreach (var car in collection)
+                        {
+                            Console.WriteLine($"{index++}. {car.Show()}");
+                        }
+                    }
+                    break;
+
+                case "7":
+                    Console.Write("Введите марку автомобиля для поиска: ");
+                    string brand = Console.ReadLine();
+                    Car carToFind = new Car(brand, 0, "", 0, 0, 0);
+                    Console.WriteLine(collection.Contains(carToFind)
+                        ? "Автомобиль найден в коллекции."
+                        : "Автомобиль не найден в коллекции.");
+                    break;
+
+                case "8":
+                    Console.Write("Введите марку автомобиля для удаления: ");
+                    string brandToRemove = Console.ReadLine();
+                    Car carToRemove = new Car(brandToRemove, 0, "", 0, 0, 0);
+                    if (collection.Remove(carToRemove))
+                    {
+                        Console.WriteLine($"Автомобиль {brandToRemove} удален из коллекции.");
+                    }
+                    else
+                    {
+                        Console.WriteLine($"Автомобиль {brandToRemove} не найден в коллекции.");
+                    }
+                    break;
+
+                case "9":
+                    var clonedCollection = new MyCollection<Car>(collection);
+                    Console.WriteLine("Коллекция успешно клонирована.");
+                    Console.WriteLine("Содержимое клонированной коллекции:");
+                    foreach (var car in clonedCollection)
+                    {
+                        Console.WriteLine(car.Show());
+                    }
+                    break;
+
+                case "10":
+                    collection.Clear();
+                    Console.WriteLine("Коллекция очищена.");
+                    break;
+
+                case "11":
+                    back = true;
+                    break;
+
+                default:
+                    Console.WriteLine("Неверный ввод!");
+                    break;
+            }
+        }
+    }
+
+    static void CreateBalancedTree()
+    {
+        Console.Write("Введите количество автомобилей: ");
+        if (int.TryParse(Console.ReadLine(), out int count) && count > 0)
+        {
+            Car[] cars = GenerateRandomCars(count);
+            carTree.CreateBalancedTree(cars);
+            Console.WriteLine($"Создано сбалансированное дерево из {count} автомобилей");
+        }
+        else
+        {
+            Console.WriteLine("Некорректный ввод!");
+        }
+    }
+
+    static void PrintTree()
+    {
+        if (carTree.Root == null)
+        {
+            Console.WriteLine("Сбалансированное дерево пусто!");
+            return;
+        }
+
+        Console.WriteLine("Сбалансированное дерево (по уровням):");
+        carTree.PrintByLevels();
+    }
+
+    static void FindMaxValueInTree()
+    {
+        if (carTree.Root == null)
+        {
+            Console.WriteLine("Дерево пусто!");
+            return;
+        }
+
+        Car maxCar = carTree.FindMaxValue();
+        Console.WriteLine($"Автомобиль с максимальной ценой:\n{maxCar.Show()}");
+    }
+
+    static void ConvertToSearchTree()
+    {
+        if (carTree.Root == null)
+        {
+            Console.WriteLine("Исходное дерево пусто!");
+            return;
+        }
+
+        bstTree = carTree.ToBinarySearchTree();
+        Console.WriteLine("Дерево успешно преобразовано в дерево поиска");
+    }
+
+    static void PrintSearchTree()
+    {
+        if (bstTree == null || bstTree.Root == null)
+        {
+            Console.WriteLine("Дерево поиска пусто или не создано!");
+            return;
+        }
+
+        Console.WriteLine("Дерево поиска (по уровням):");
+        bstTree.PrintByLevels();
+    }
+
+    static void ClearAllTrees()
+    {
+        carTree.Clear();
+        bstTree?.Clear();
+        bstTree = null;
+        Console.WriteLine("Все деревья очищены");
+    }
+
+    static Car[] GenerateRandomCars(int count)
+    {
+        Car[] cars = new Car[count];
+        for (int i = 0; i < count; i++)
+            cars[i] = DoublyLinkedList<Car>.GenerateRandomCar();
+        return cars;
+    }
+
+static void AddRandomCarsToHashTable(HashTableWithChaining<string, Car> hashTable)
     {
         Console.Write("Сколько автомобилей добавить? ");
         if (int.TryParse(Console.ReadLine(), out int count) && count > 0)

@@ -52,6 +52,8 @@
     <Compile Include="DoubleListTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="HashTableTest.cs" />
+    <Compile Include="TreeNodeTest.cs" />
+    <Compile Include="UnitTest1.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
